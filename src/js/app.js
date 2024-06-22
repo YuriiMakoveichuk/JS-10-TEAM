@@ -13,11 +13,12 @@ formEl.addEventListener('submit', async event => {
   event.preventDefault();
   listEl.innerHTML = '';
   showLoader();
+  hideBtn();
   page = 1;
   searchQuery = event.currentTarget.elements['user-search-query'].value.trim();
   try {
     const res = await getPhotos(searchQuery, page);
-    if (res.total > 0) {
+    if (res.data.total > 0) {
       iziToast.success({
         position: 'topRight',
         message: `We find ${res.data.total} photos`,
