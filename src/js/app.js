@@ -59,6 +59,16 @@ loadMoreBtn.addEventListener('click', async () => {
       'beforeend',
       createGalleryCards(res.data.results)
     );
+    // function scroll
+    const { height: cardHeight } = document
+      .querySelector('.gallery')
+      .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+      top: cardHeight * 2,
+      behavior: 'smooth',
+    });
+    //
     const lastPage = Math.ceil(res.data.total / 12);
     if (page === lastPage) {
       hideBtn();
