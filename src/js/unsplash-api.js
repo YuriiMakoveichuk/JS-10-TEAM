@@ -1,4 +1,4 @@
-export function getPhotos(query) {
+export function getPhotos(query, page) {
   const API_KEY = 'LxvKVGJqiSe6NcEVZOaLXC-f2JIIWZaq_o0WrF8mwJc';
   const BASE_URL = 'https://api.unsplash.com';
   const END_POIND = '/search/photos';
@@ -6,7 +6,7 @@ export function getPhotos(query) {
   const params = new URLSearchParams({
     client_id: API_KEY,
     query,
-    page: 1,
+    page,
     per_page: 12,
     orientation: 'portrait',
   });
